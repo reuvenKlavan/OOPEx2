@@ -16,7 +16,7 @@ After creating the graph, there are a few algorithms that are optional to run on
 
 * isConnected - This is a boolean algorithm that check if the graph is strongly connected (all of the vertecies are connected to eac other one way or another). The algorithm uses a private function that check if the verteceis are connected. the algorithm goes over all of the verteceis of the graph and checks if is possible to get from source to destination and if true, it checks the opposite graph (the mirror graph) in the way that the source becomes the destanation and vice versa, and checks again if it is possible to get from the source to the destination. 
 
-* shortestPathDist - This is an algorithm that calculates the shortest path between geven Vertecies. this algorithm is part of a known problem that is called "TSP" - Traveling Salesman Problem, the problem is to find all of the possible ways to pass through geven Verteceis and findig the shortest one in exponentual runtime. we implemented this algorithem by srtarting from the source Vertex and checking all of the verteceis that are connected to it with one Edge and marking them as visited(coloring them black) and saving the "cost" it took to get to that particular Vrtex, and so recursevly to all Vertecies. in case the vertex does not have anyware to go to it goes back to privous vertex,
+* shortestPathDist - This is an algorithm that calculates the shortest path between geven Vertecies. this algorithm is part of a known problem that is called "TSP" - Traveling Salesman Problem, the problem is to find all of the possible ways to pass through geven Verteceis and findig the shortest one in exponentual runtime. we implemented this algorithem by srtarting from the source Vertex and checking all of the verteceis that are connected to it with one Edge and marking them as visited(coloring them black) and saving the "cost" it took to get to that particular Vrtex, and so recursevly to all Vertecies. in case the vertex does not have anyware to go to it goes back to privous vertex, and colors it white (not visited). in case we visit a "white" Vertix that we visited alredy and his wheight is lower so we pass to it without changing its wheight. the recursion is finished when the source is equal to the destanation and then return the wheight.
 
 * List<node_data> shortestPath - this algorithm returns the Verteceis that it will be the shortest way to go through, this algorithm uses the shortestPathDist to chek wich path is shortest. if there is no path it will return null.
 
@@ -26,3 +26,27 @@ After creating the graph, there are a few algorithms that are optional to run on
 
 ## Data structure
 
+The requiremnts where to implement the graph in a way that it is possible to do a few functions in linear runtime.
+therefor we implemented as described.
+
+The graph is implemented with the fallowing data strutures:
+
+The vertex set in a LinkedList.
+
+The Edges are saved in a hash map indie a hash map in order to be able to return a requested Edge in linear run time.
+
+## GUI
+
+The GUI window can run graphs and set them using the algorithms.
+
+Using the GUI graph there is a menue  bar that has two options:
+
+* File: - save
+        - Load
+        
+* Algorithms: - Is Connected
+              - Shortest Path distance
+              - Shortest Path
+              - TSP
+              
+              
